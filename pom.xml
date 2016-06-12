@@ -70,4 +70,7 @@
         <tiles.version>3.0.5</tiles.version>
         <junit.version>4.12</junit.version>
     </properties>
+    <modules>
+    	<module>ansej-gui</module>
+    </modules>
 </project>
