@@ -2,7 +2,6 @@ package dz.ansej.gui.auth;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -33,7 +32,7 @@ public class Login extends JPanel implements ActionListener {
 	private JTextField pwdText;
 	private JLabel loginLabel, pwdLabel;
 	private Box hBox1, hBox2, hBox3, vBox;
-	private Container container;
+	//private Container container;
 	
 	/*
 	 * Constructor
