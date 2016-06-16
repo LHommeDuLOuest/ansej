@@ -8,8 +8,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  *
  */
 @SuppressWarnings("serial")
-public class Login extends JFrame implements ActionListener {
+public class Login extends JPanel implements ActionListener {
 	
 	private static final int HBOX1_HORIZONTAL_STRUT = 5;
 	private static final int HBOX2_HORIZONTAL_STRUT = 20;
@@ -39,8 +39,8 @@ public class Login extends JFrame implements ActionListener {
 	 * Constructor
 	 */
 	public Login() {
-		this.setTitle("Login");
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//this.setTitle("Login");
+		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.jbInit();
 	}
 	
@@ -84,13 +84,14 @@ public class Login extends JFrame implements ActionListener {
 		vBox.add(Box.createGlue());
 		vBox.add(hBox3);
 		
-		container = this.getContentPane();
-		container.add(vBox, BorderLayout.CENTER);
+		//container = this.getRootPane();
+		//container.add(vBox, BorderLayout.CENTER);
+		this.add(vBox, BorderLayout.CENTER);
 		
 		this.setVisible(true);
 		this.setSize(CONTENT_WIDTH, CONTENT_HEIGHT);
-		this.setResizable(false);
-		this.setLocationRelativeTo(null);
+		//this.setResizable(false);
+		//this.setLocationRelativeTo(null);
 	}
     
 	/*
@@ -109,7 +110,7 @@ public class Login extends JFrame implements ActionListener {
 	}
 	
 	public static void main(String[] args) {
-		Login login = new Login ();
+		//Login login = new Login ();
 	}
 
 }
