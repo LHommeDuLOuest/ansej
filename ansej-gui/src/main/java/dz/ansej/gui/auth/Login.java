@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 /**
  * 
  * @author lyes kherbiche
+ * @author ⴻⵍⵢⴰⵙ ⵅⴻⵔⴱⵉⵛ
  *
  */
 @SuppressWarnings("serial")
@@ -26,7 +27,7 @@ public class Login extends JPanel implements ActionListener {
 	private static final int CONTENT_WIDTH = 300;
 	private static final int CONTENT_HEIGHT = 200;
 	
-	private JButton annulerButton;
+	private JButton cancelButton;
 	private JButton loginButton;
 	private JTextField loginText ;
 	private JTextField pwdText;
@@ -38,8 +39,6 @@ public class Login extends JPanel implements ActionListener {
 	 * Constructor
 	 */
 	public Login() {
-		//this.setTitle("Login");
-		//this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.jbInit();
 	}
 	
@@ -47,7 +46,7 @@ public class Login extends JPanel implements ActionListener {
 	 * Called from Constructor
 	 */
 	private void jbInit() {
-		annulerButton = new JButton("Annuler");
+		cancelButton = new JButton("Annuler");
 		loginButton = new JButton("Se connecter");
 		loginText = new JTextField(10);
 		pwdText = new JPasswordField(10);
@@ -67,14 +66,14 @@ public class Login extends JPanel implements ActionListener {
 		hBox2.add(Box.createHorizontalStrut(HBOX2_HORIZONTAL_STRUT));
 		hBox2.add(pwdText);
 		
-		annulerButton.addActionListener(this);
-		annulerButton.setBackground(Color.blue);
-		annulerButton.setForeground(Color.white);
+		cancelButton.addActionListener(this);
+		cancelButton.setBackground(Color.blue);
+		cancelButton.setForeground(Color.white);
 		loginButton.addActionListener(this);
 		loginButton.setBackground(Color.BLUE);
 		loginButton.setForeground(Color.WHITE);
 		
-		hBox3.add(annulerButton);
+		hBox3.add(cancelButton);
 		hBox3.add(Box.createHorizontalStrut(HBOX3_HORIZONTAL_STRUT));
 		hBox3.add(loginButton);
 		
@@ -99,7 +98,8 @@ public class Login extends JPanel implements ActionListener {
 	 */
 	public void actionPerformed(ActionEvent e) {
 		JButton buttonClicked = (JButton)e.getSource();
-		if(buttonClicked == annulerButton) {
+		System.out.println("e.getActionCommand() "+e.getActionCommand());
+		if(buttonClicked == cancelButton) {
 			
 		}
 		if(buttonClicked == loginButton) {
@@ -108,8 +108,4 @@ public class Login extends JPanel implements ActionListener {
 		
 	}
 	
-	public static void main(String[] args) {
-		//Login login = new Login ();
-	}
-
 }

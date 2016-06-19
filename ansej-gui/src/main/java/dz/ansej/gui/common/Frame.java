@@ -7,14 +7,15 @@ import dz.ansej.gui.auth.Login;
 /**
  * 
  * @author lyes kherbiche
+ * @author ⴻⵍⵢⴰⵙ ⵅⴻⵔⴱⵉⵛ
  *
  */
 @SuppressWarnings("serial")
 public class Frame extends JFrame {
 	
 	public Frame() {
-		Login login = new Login();
-		this.setContentPane(login);
+		//Login login = new Login();
+		//this.setContentPane(login);
 		this.setTitle("login");
 		this.setSize(300,200);
 		this.setResizable(false);
@@ -24,7 +25,9 @@ public class Frame extends JFrame {
 	}
 	
 	public static void main(String[] args) {
-		Frame login = new Frame ();
+		Frame frame = new Frame ();
+		Login login = new Login();
+		frame.setContentPane(login);
 		
 	}
 

@@ -6,6 +6,7 @@ import javax.swing.event.ListDataListener;
 /**
  * 
  * @author lyes kherbiche
+ * @author ⴻⵍⵢⴰⵙ ⵅⴻⵔⴱⵉⵛ
  *
  */
 public class AnsejListModel implements ListModel<Object> {
