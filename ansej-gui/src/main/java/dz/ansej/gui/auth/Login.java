@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import dz.ansej.gui.common.*;
+
 /**
  * 
  * @author lyes kherbiche
@@ -27,8 +29,8 @@ public class Login extends JPanel implements ActionListener {
 	private static final int CONTENT_WIDTH = 300;
 	private static final int CONTENT_HEIGHT = 200;
 	
-	private JButton cancelButton;
-	private JButton loginButton;
+	private static JButton cancelButton;
+	private static JButton loginButton;
 	private JTextField loginText ;
 	private JTextField pwdText;
 	private JLabel loginLabel, pwdLabel;
@@ -66,7 +68,7 @@ public class Login extends JPanel implements ActionListener {
 		hBox2.add(Box.createHorizontalStrut(HBOX2_HORIZONTAL_STRUT));
 		hBox2.add(pwdText);
 		
-		cancelButton.addActionListener(this);
+		cancelButton.addActionListener(new UserActionEvent());
 		cancelButton.setBackground(Color.blue);
 		cancelButton.setForeground(Color.white);
 		loginButton.addActionListener(this);
@@ -105,7 +107,14 @@ public class Login extends JPanel implements ActionListener {
 		if(buttonClicked == loginButton) {
 			
 		}
-		
+	}
+
+	public static JButton getCancelButton() {
+		return cancelButton;
+	}
+
+	public static JButton getLoginButton() {
+		return loginButton;
 	}
 	
 }
