@@ -2,8 +2,7 @@ package dz.ansej.gui.auth;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -12,7 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import dz.ansej.gui.common.*;
+import dz.ansej.gui.common.AnsejListModel;
+import dz.ansej.gui.common.UserActionEvent;
 
 /**
  * 
@@ -21,7 +21,7 @@ import dz.ansej.gui.common.*;
  *
  */
 @SuppressWarnings("serial")
-public class Login extends JPanel implements ActionListener {
+public class Login extends JPanel {
 	
 	private static final int HBOX1_HORIZONTAL_STRUT = 5;
 	private static final int HBOX2_HORIZONTAL_STRUT = 20;
@@ -31,11 +31,12 @@ public class Login extends JPanel implements ActionListener {
 	
 	private static JButton cancelButton;
 	private static JButton loginButton;
-	private JTextField loginText ;
-	private JTextField pwdText;
+	private static JTextField loginText ;
+	private static JTextField pwdText;
 	private JLabel loginLabel, pwdLabel;
 	private Box hBox1, hBox2, hBox3, vBox;
-	//private Container container;
+	
+	private UserActionEvent userActionEvent = new UserActionEvent();
 	
 	/*
 	 * Constructor
@@ -60,6 +61,8 @@ public class Login extends JPanel implements ActionListener {
 		vBox = Box.createVerticalBox();
 		loginText.setMaximumSize(loginText.getPreferredSize());
 		pwdText.setMaximumSize(pwdText.getPreferredSize());
+		loginText.addActionListener(userActionEvent);
+		pwdText.addActionListener(userActionEvent);
 		
 		hBox1.add(loginLabel);
 		hBox1.add(Box.createHorizontalStrut(HBOX1_HORIZONTAL_STRUT));
@@ -68,10 +71,10 @@ public class Login extends JPanel implements ActionListener {
 		hBox2.add(Box.createHorizontalStrut(HBOX2_HORIZONTAL_STRUT));
 		hBox2.add(pwdText);
 		
-		cancelButton.addActionListener(new UserActionEvent());
+		cancelButton.addActionListener(userActionEvent);
 		cancelButton.setBackground(Color.blue);
 		cancelButton.setForeground(Color.white);
-		loginButton.addActionListener(this);
+		loginButton.addActionListener(userActionEvent);
 		loginButton.setBackground(Color.BLUE);
 		loginButton.setForeground(Color.WHITE);
 		
@@ -84,31 +87,11 @@ public class Login extends JPanel implements ActionListener {
 		vBox.add(Box.createGlue());
 		vBox.add(hBox3);
 		
-		//container = this.getRootPane();
-		//container.add(vBox, BorderLayout.CENTER);
 		this.add(vBox, BorderLayout.CENTER);
-		
 		this.setVisible(true);
 		this.setSize(CONTENT_WIDTH, CONTENT_HEIGHT);
-		//this.setResizable(false);
-		//this.setLocationRelativeTo(null);
 	}
-    
-	/*
-	 * (non-Javadoc)
-	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-	 */
-	public void actionPerformed(ActionEvent e) {
-		JButton buttonClicked = (JButton)e.getSource();
-		System.out.println("e.getActionCommand() "+e.getActionCommand());
-		if(buttonClicked == cancelButton) {
-			
-		}
-		if(buttonClicked == loginButton) {
-			
-		}
-	}
-
+	
 	public static JButton getCancelButton() {
 		return cancelButton;
 	}
@@ -117,4 +100,18 @@ public class Login extends JPanel implements ActionListener {
 		return loginButton;
 	}
 	
+	public static JTextField getLoginText() {
+		return loginText;
+	}
+	
+	public static JTextField getPwdText() {
+		return pwdText;
+	}
+	
+	public static List<Object> getAnsejListModelData() {
+		AnsejListModel.getData().clear();
+		AnsejListModel.addElement(loginText.getText());
+		AnsejListModel.addElement(pwdText.getText());
+		return AnsejListModel.getData();
+	}
 }

@@ -1,5 +1,8 @@
 package dz.ansej.gui.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.ListModel;
 import javax.swing.event.ListDataListener;
 
@@ -10,15 +13,14 @@ import javax.swing.event.ListDataListener;
  *
  */
 public class AnsejListModel implements ListModel<Object> {
+	private static List<Object> data = new ArrayList<Object>();
 
 	public int getSize() {
-		// TODO Auto-generated method stub
-		return 0;
+		return data.size();
 	}
 
 	public Object getElementAt(int index) {
-		// TODO Auto-generated method stub
-		return null;
+		return data.get(index);
 	}
 
 	public void addListDataListener(ListDataListener l) {
@@ -29,6 +31,14 @@ public class AnsejListModel implements ListModel<Object> {
 	public void removeListDataListener(ListDataListener l) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public static void addElement(Object obj) {
+		data.add(obj);
+	}
+	
+	public static List<Object> getData() {
+		return data;
 	}
 
 }
