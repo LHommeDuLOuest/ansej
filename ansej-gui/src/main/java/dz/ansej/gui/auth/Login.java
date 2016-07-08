@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dz.ansej.gui.common.AnsejListModel;
+import dz.ansej.gui.common.DocListener;
 import dz.ansej.gui.common.UserActionEvent;
 
 /**
@@ -37,6 +38,7 @@ public class Login extends JPanel {
 	private Box hBox1, hBox2, hBox3, vBox;
 	
 	private UserActionEvent userActionEvent = new UserActionEvent();
+	private DocListener docListener = new DocListener();
 	
 	/*
 	 * Constructor
@@ -61,8 +63,10 @@ public class Login extends JPanel {
 		vBox = Box.createVerticalBox();
 		loginText.setMaximumSize(loginText.getPreferredSize());
 		pwdText.setMaximumSize(pwdText.getPreferredSize());
-		loginText.addActionListener(userActionEvent);
-		pwdText.addActionListener(userActionEvent);
+		loginText.getDocument().putProperty("loginText", loginText);
+		loginText.getDocument().addDocumentListener(docListener);
+		pwdText.getDocument().putProperty("pwdText", pwdText);
+		pwdText.getDocument().addDocumentListener(docListener);
 		
 		hBox1.add(loginLabel);
 		hBox1.add(Box.createHorizontalStrut(HBOX1_HORIZONTAL_STRUT));
