@@ -34,7 +34,15 @@ public class AnsejListModel implements ListModel<Object> {
 	}
 	
 	public static void addElement(int index, Object obj) {
-		data.add(index, obj);
+		/*try {
+			data.set(index, obj);
+		}catch (IndexOutOfBoundsException e) {
+			data.add(index, obj);
+		}*/
+		if(data.size() <= index) {
+			data.add(index, obj);
+		} else
+			data.set(index, obj);
 	}
 	
 	public static List<Object> getData() {

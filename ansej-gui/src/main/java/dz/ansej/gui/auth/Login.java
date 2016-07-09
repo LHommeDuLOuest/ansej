@@ -2,8 +2,12 @@ package dz.ansej.gui.auth;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -11,6 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import dz.ansej.gui.common.DocListener;
+import dz.ansej.gui.common.EnumButtonActionCmd;
 import dz.ansej.gui.common.UserActionEvent;
 
 /**
@@ -76,9 +81,18 @@ public class Login extends JPanel {
 		cancelButton.addActionListener(userActionEvent);
 		cancelButton.setBackground(Color.blue);
 		cancelButton.setForeground(Color.white);
+		cancelButton.setActionCommand(EnumButtonActionCmd.CANCEL_LOGIN.name());
 		loginButton.addActionListener(userActionEvent);
 		loginButton.setBackground(Color.BLUE);
 		loginButton.setForeground(Color.WHITE);
+		loginButton.setActionCommand(EnumButtonActionCmd.LOGIN.name());
+		try {
+			Image img = ImageIO.read(getClass().getResource("/"+EnumButtonActionCmd.LOGIN.name()+".png"));
+			Image scaled = img.getScaledInstance(20, 15, java.awt.Image.SCALE_SMOOTH);
+			loginButton.setIcon(new ImageIcon(scaled));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		
 		hBox3.add(cancelButton);
 		hBox3.add(Box.createHorizontalStrut(HBOX3_HORIZONTAL_STRUT));

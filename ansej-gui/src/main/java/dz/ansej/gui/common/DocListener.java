@@ -6,7 +6,7 @@ import javax.swing.event.DocumentListener;
 
 /**
  * 
- * @author lyes
+ * @author lyes Kherbiche
  * @author ⴻⵍⵢⴰⵙ ⵅⴻⵔⴱⵉⵛ
  *
  */
@@ -31,11 +31,11 @@ public class DocListener implements DocumentListener {
 	}
 	
 	private void warn(DocumentEvent e) {
-		if(e.getLength()>0 && e.getDocument().getProperty("loginText")!=null) {
-		    AnsejListModel.addElement(0, ((JTextField)e.getDocument().getProperty("loginText")).getText());
+		if(e.getLength()>0 && e.getDocument().getProperty(EnumField.loginText.name())!=null) {
+		    AnsejListModel.addElement(0, ((JTextField)e.getDocument().getProperty(EnumField.loginText.name())).getText());
 		}
-		if(e.getLength()>0 && e.getDocument().getProperty("pwdText")!=null) {
-			AnsejListModel.addElement(1, ((JTextField)e.getDocument().getProperty("pwdText")).getText());
+		if(e.getLength()>0 && e.getDocument().getProperty(EnumField.pwdText.name())!=null) {
+			AnsejListModel.addElement(1, ((JTextField)e.getDocument().getProperty(EnumField.pwdText.name())).getText());
 		}
 	}
 

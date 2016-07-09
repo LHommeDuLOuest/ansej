@@ -16,8 +16,8 @@ public class Frame extends JFrame {
 	public Frame() {
 		
 		this.setTitle("login");
-		this.setSize(300,200);
-		this.setResizable(false);
+		this.setSize(400,300);
+		this.setResizable(true);
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
