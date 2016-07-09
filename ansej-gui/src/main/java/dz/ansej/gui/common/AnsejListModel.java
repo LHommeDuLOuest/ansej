@@ -33,8 +33,8 @@ public class AnsejListModel implements ListModel<Object> {
 		
 	}
 	
-	public static void addElement(Object obj) {
-		data.add(obj);
+	public static void addElement(int index, Object obj) {
+		data.add(index, obj);
 	}
 	
 	public static List<Object> getData() {

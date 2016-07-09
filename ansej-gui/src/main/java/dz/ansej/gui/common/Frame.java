@@ -14,8 +14,7 @@ import dz.ansej.gui.auth.Login;
 public class Frame extends JFrame {
 	
 	public Frame() {
-		//Login login = new Login();
-		//this.setContentPane(login);
+		
 		this.setTitle("login");
 		this.setSize(300,200);
 		this.setResizable(false);

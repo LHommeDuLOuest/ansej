@@ -2,7 +2,6 @@ package dz.ansej.gui.auth;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -11,7 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import dz.ansej.gui.common.AnsejListModel;
 import dz.ansej.gui.common.DocListener;
 import dz.ansej.gui.common.UserActionEvent;
 
@@ -112,10 +110,10 @@ public class Login extends JPanel {
 		return pwdText;
 	}
 	
-	public static List<Object> getAnsejListModelData() {
+	/*public static List<Object> getAnsejListModelData() {
 		AnsejListModel.getData().clear();
 		AnsejListModel.addElement(loginText.getText());
 		AnsejListModel.addElement(pwdText.getText());
 		return AnsejListModel.getData();
-	}
+	}*/
 }
