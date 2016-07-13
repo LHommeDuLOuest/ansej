@@ -124,10 +124,4 @@ public class Login extends JPanel {
 		return pwdText;
 	}
 	
-	/*public static List<Object> getAnsejListModelData() {
-		AnsejListModel.getData().clear();
-		AnsejListModel.addElement(loginText.getText());
-		AnsejListModel.addElement(pwdText.getText());
-		return AnsejListModel.getData();
-	}*/
 }
