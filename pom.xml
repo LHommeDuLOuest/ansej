@@ -70,7 +70,18 @@
         <org.slf4j.version>1.7.6</org.slf4j.version>
         <tiles.version>3.0.5</tiles.version>
         <junit.version>4.12</junit.version>
+        <assembly.version>2.3</assembly.version>
     </properties>
+    
+    <dependencyManagement>
+      <dependencies>
+        <dependency>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>${assembly.version}</version>
+        </dependency>
+      </dependencies>
+    </dependencyManagement>
     
     <build>
       <pluginManagement>
@@ -120,5 +131,7 @@
     	<module>ansej-gui</module>
         <module>ansej-service</module>
     </modules>
+    
+    <inceptionYear>2008</inceptionYear>
     
 </project>

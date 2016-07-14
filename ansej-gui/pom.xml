@@ -9,5 +9,33 @@
   <artifactId>ansej-gui</artifactId>
   <name>ansej software</name>
   <description>ANSEJ GUI</description>
+  <packaging>jar</packaging>
+  
+  <build>
+   <plugins>
+     <plugin>
+       <artifactId>maven-assembly-plugin</artifactId>
+       <configuration>
+         <descriptors>
+           <descriptor>src/main/assembly/jar.xml</descriptor>
+         </descriptors>
+         <archive>
+           <manifest>
+             <mainClass>dz.ansej.gui.common.Frame</mainClass>
+           </manifest>
+         </archive>
+       </configuration>
+       <executions>
+         <execution>
+           <id>executable</id>
+           <phase>package</phase>
+           <goals>
+             <goal>single</goal>
+           </goals>
+         </execution>
+       </executions>
+     </plugin>
+   </plugins>
+  </build>
   
 </project>

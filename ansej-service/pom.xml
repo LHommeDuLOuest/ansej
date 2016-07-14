@@ -11,6 +11,7 @@
   <artifactId>ansej-service</artifactId>
   <name>ansej-service</name>
   <description>ANSEJ SERVER SIDE</description>
+  <packaging>jar</packaging>
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,5 +25,32 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+   <plugins>
+     <plugin>
+       <artifactId>maven-assembly-plugin</artifactId>
+       <configuration>
+         <descriptors>
+           <descriptor>src/main/assembly/jar.xml</descriptor>
+         </descriptors>
+         <archive>
+           <manifest>
+             <mainClass>dz.ansej.gui.remote.auth.Server</mainClass>
+           </manifest>
+         </archive>
+       </configuration>
+       <executions>
+         <execution>
+           <id>executable</id>
+           <phase>package</phase>
+           <goals>
+             <goal>single</goal>
+           </goals>
+         </execution>
+       </executions>
+     </plugin>
+   </plugins>
+  </build>
   
 </project>
